@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Palette: "Visiting Day" ----
+     Warm, human, specific to companion-visit / old-age-home programs.
+     Deliberately not cream-serif-terracotta, not near-black-with-neon,
+     not a broadsheet grid. */
+  --color-paper: #f6efdd;         /* warm turmeric-tinted paper (page base) */
+  --color-sand: #ecdfc1;          /* deeper paper, alternate section bg */
+  --color-ink: #23291f;           /* near-black warm green, primary text */
+  --color-ink-soft: #4d5546;      /* secondary text on paper */
+  --color-banyan: #2f5d50;        /* deep teal-green, brand / primary CTA */
+  --color-banyan-dark: #203f37;
+  --color-marigold: #e8a33d;      /* warm gold accent, joy / highlight */
+  --color-marigold-dark: #c6832a;
+  --color-brick: #b8503a;         /* muted terracotta-brick, secondary accent */
+  --color-cream-card: #fffcf3;    /* lightest surface, cards on sand */
+  --color-line: #d8c9a3;          /* hairline / divider on paper */
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-pin: 0 18px 30px -12px rgb(35 41 31 / 0.28);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-marigold);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brick);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Eyebrow label used above section headings — encodes "this is a
+     program area", set in the body face with a pin-dot, not a numbered tag. */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-brick);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--color-brick);
+  }
+
+  /* torn-paper style divider between sections, evoking a bulletin-board
+     strip rather than a plain hairline rule */
+  .torn-divider {
+    height: 14px;
+    width: 100%;
+    background: var(--color-paper);
+    clip-path: polygon(
+      0% 100%, 2% 20%, 5% 90%, 8% 10%, 11% 80%, 14% 0%, 17% 70%, 20% 15%,
+      23% 95%, 26% 25%, 29% 85%, 32% 5%, 35% 75%, 38% 20%, 41% 90%, 44% 10%,
+      47% 80%, 50% 0%, 53% 70%, 56% 15%, 59% 95%, 62% 25%, 65% 85%, 68% 5%,
+      71% 75%, 74% 20%, 77% 90%, 80% 10%, 83% 80%, 86% 0%, 89% 70%, 92% 15%,
+      95% 95%, 98% 25%, 100% 100%
+    );
+  }
+
+  /* A pinned index card — the site's signature element, used with
+     restraint for photos, events, and voices pulled from the "board". */
+  .pin-card {
+    position: relative;
+    background: var(--color-cream-card);
+    border: 1px solid var(--color-line);
+    box-shadow: var(--shadow-pin);
+  }
+  .pin-dot {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 32% 28%, #ffd88a, var(--color-marigold-dark) 75%);
+    box-shadow: 0 3px 5px rgb(0 0 0 / 0.35);
+    z-index: 10;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: var(--color-banyan);
+    color: var(--color-paper);
+    font-weight: 600;
+    border-radius: 0.6rem;
+    padding: 0.9rem 1.75rem;
+    transition: transform 160ms ease, background-color 160ms ease;
+    box-shadow: 0 10px 20px -8px rgb(47 93 80 / 0.55);
+  }
+  .btn-primary:hover {
+    background: var(--color-banyan-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: transparent;
+    color: var(--color-ink);
+    font-weight: 600;
+    border-radius: 0.6rem;
+    padding: 0.85rem 1.75rem;
+    border: 1.5px solid var(--color-ink);
+    transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+  }
+  .btn-secondary:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    transform: translateY(-2px);
+  }
+
+  .field {
+    width: 100%;
+    background: var(--color-cream-card);
+    border: 1.5px solid var(--color-line);
+    color: var(--color-ink);
+    border-radius: 0.6rem;
+    padding: 0.9rem 1rem;
+    font-family: var(--font-body);
+    transition: border-color 160ms ease;
+  }
+  .field::placeholder {
+    color: var(--color-ink-soft);
+    opacity: 0.6;
+  }
+  .field:focus {
+    border-color: var(--color-banyan);
+    outline: none;
+  }
+
+  .label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-ink-soft);
+    margin-bottom: 0.4rem;
+  }
+}

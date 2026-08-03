@@ -33,7 +33,7 @@ function Navbar() {
             </svg>
           </span>
           <span className="font-display font-semibold text-xl text-ink leading-none">
-            Community<span className="text-brick">Connect</span>
+           Care<span className="text-brick">Connect</span>
           </span>
         </Link>
 

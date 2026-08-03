@@ -33,7 +33,7 @@ function Navbar() {
             </svg>
           </span>
           <span className="font-display font-semibold text-xl text-ink leading-none">
-           Care<span className="text-brick">Connect</span>
+            Care<span className="text-brick">Connect</span>
           </span>
         </Link>
 
@@ -80,7 +80,7 @@ function Navbar() {
       {open && (
         <div className="md:hidden border-t border-line bg-paper px-5 pb-6 pt-2 flex flex-col gap-1">
           {links.map((l) => (
-            <a
+            
               key={l.label}
               href={l.to}
               onClick={() => setOpen(false)}

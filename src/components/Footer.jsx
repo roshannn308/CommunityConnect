@@ -7,7 +7,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-14 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
         <div className="md:col-span-2">
           <span className="font-display font-semibold text-2xl text-paper">
-            Care<span className="text-marigold">Connect</span>
+          Care<span className="text-marigold">Connect</span>
           </span>
           <p className="mt-4 text-paper/70 max-w-sm leading-relaxed">
             We pair volunteers with elders in care homes for regular visits, digital

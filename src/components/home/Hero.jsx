@@ -20,7 +20,7 @@ function Hero() {
           </h1>
 
           <p className="mt-6 text-lg text-ink-soft max-w-md leading-relaxed">
-            CommunityConnect pairs volunteers with elders for regular visits, teaches
+            CareConnect pairs volunteers with elders for regular visits, teaches
             digital skills like video calls and UPI, and fills the week with music,
             games, and celebrations worth looking forward to.
           </p>

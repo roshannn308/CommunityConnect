@@ -33,7 +33,7 @@ function Footer() {
             Reach us
           </h3>
           <ul className="space-y-2.5 text-paper/70">
-            <li>hello@communityconnect.org</li>
+            <li>hello@careconnect.org</li>
             <li>+91 98765 43210</li>
             <li>Bengaluru, Karnataka</li>
           </ul>

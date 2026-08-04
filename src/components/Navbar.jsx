@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext.jsx";
 
@@ -18,17 +18,9 @@ function Navbar() {
     <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 min-h-[4.5rem] flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-2.5 shrink-0" onClick={() => setOpen(false)}>
-          <span
-            aria-hidden="true"
-            className="w-9 h-9 rounded-full bg-banyan flex items-center justify-center"
-          >
+          <span aria-hidden="true" className="w-9 h-9 rounded-full bg-banyan flex items-center justify-center">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M4 18c2-6 5-9 8-9s6 3 8 9"
-                stroke="#F6EFDD"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              />
+              <path d="M4 18c2-6 5-9 8-9s6 3 8 9" stroke="#F6EFDD" strokeWidth="2.2" strokeLinecap="round" />
               <circle cx="12" cy="7" r="2.4" fill="#E8A33D" />
             </svg>
           </span>
@@ -80,12 +72,7 @@ function Navbar() {
       {open && (
         <div className="md:hidden border-t border-line bg-paper px-5 pb-6 pt-2 flex flex-col gap-1">
           {links.map((l) => (
-            
-              key={l.label}
-              href={l.to}
-              onClick={() => setOpen(false)}
-              className="py-2.5 font-medium text-ink-soft"
-            >
+            <a key={l.label} href={l.to} onClick={() => setOpen(false)} className="py-2.5 font-medium text-ink-soft">
               {l.label}
             </a>
           ))}
